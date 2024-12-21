@@ -6,12 +6,12 @@ from icecream import ic
 iceicebaby()
 
 _internal_folder = _internal()
-data_folder_path = 'Data'
+algorithm_folder_path = 'algorithm'
 if _internal_folder:
-    data_folder_path = generate_path(_internal_folder.as_posix(), 'Data').as_posix()
+    algorithm_folder_path = generate_path(_internal_folder.as_posix(), 'algorithm').as_posix()
 
 def encrypt(message: str) -> str:
-    path = generate_path(data_folder_path, 'encrypt.json').as_posix()
+    path = generate_path(algorithm_folder_path, 'encrypt.json').as_posix()
     ic(path)
     with open(path, 'r') as f:
         char_data: dict = json.loads(f.read())
@@ -24,7 +24,7 @@ def encrypt(message: str) -> str:
     return output
 
 def decrypt(morse_code: str) -> str:
-    path = generate_path(data_folder_path, 'decrypt.json').as_posix()
+    path = generate_path(algorithm_folder_path, 'decrypt.json').as_posix()
     ic(path)
     with open(path, 'r') as f:
         char_data: dict = json.loads(f.read())
@@ -37,7 +37,7 @@ def decrypt(morse_code: str) -> str:
     return output
 
 if __name__ == "__main__":
-    ic(_internal_folder, data_folder_path)
+    ic(_internal_folder, algorithm_folder_path)
     message: str = 'I am in love with your wife!'
     a = encrypt(message)
     morse_code: str = '.. / .- -- / .. -. / .-.. --- ...- . / .-- .. - .... / -.-- --- ..- .-. / .-- .. ..-. . -.-.--'

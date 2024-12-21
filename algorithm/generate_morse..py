@@ -14,7 +14,7 @@ def encrypt_data(normal: list, morse_digits: list):
     for i in range(len(normal)):
         morse_dict.update({normal[i]: morse_digits[i]})
 
-    with open('Data/encrypt.json', 'w') as f:
+    with open('algorithm/encrypt.json', 'w') as f:
         json_data = json.dumps(morse_dict)
         f.write(json_data)
 
@@ -26,7 +26,7 @@ def decrypt_data(normal: list, morse_digits: list):
     for i in range(len(normal)):
         letters_dict.update({morse_digits[i]: normal[i]})
 
-    with open('Data/decrypt.json', 'w') as f:
+    with open('algorithm/decrypt.json', 'w') as f:
         json_data = json.dumps(letters_dict)
         f.write(json_data)
 
