@@ -1,4 +1,4 @@
-from file_management import _internal, assets_folder, generate_path
+from file_management import _internal, generate_path
 import json
 from debug import iceicebaby
 from icecream import ic

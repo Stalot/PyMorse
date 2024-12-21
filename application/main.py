@@ -1,8 +1,16 @@
 import customtkinter
 from elements import Top, Display
+from file_management import _internal, assets_folder, generate_path
 
 maxsize=(...)
 minsize=(960, 540)
+
+assets_folder_path = assets_folder()
+if not assets_folder_path:
+    _internal_folder = _internal()
+    assets_folder_path = generate_path(_internal_folder.as_posix(), 'assets')
+
+print(assets_folder_path)
 
 class App(customtkinter.CTk):
     def __init__(self):
@@ -13,6 +21,7 @@ class App(customtkinter.CTk):
         customtkinter.CTkFont()
 
         self.title('PyMorse')
+        self.iconbitmap(generate_path(assets_folder_path.as_posix(), 'PyMorse.ico'))
         self.geometry('1280x720')
         self.minsize = minsize
         self.grid_columnconfigure((0, 1), weight=1)
