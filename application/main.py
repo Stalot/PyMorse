@@ -8,8 +8,9 @@ class App(customtkinter.CTk):
     def __init__(self):
         super().__init__()
 
-        top_font = customtkinter.CTkFont('Arial', 64)
+        top_font = customtkinter.CTkFont('Arial', 80)
         default_font = customtkinter.CTkFont('Arial', 16)
+        customtkinter.CTkFont()
 
         self.title('PyMorse')
         self.geometry('1280x720')
@@ -17,7 +18,7 @@ class App(customtkinter.CTk):
         self.grid_columnconfigure((0, 1), weight=1)
 
         self.top = Top(self, font=top_font, fg_color='transparent')
-        self.top.pack(side='top', padx=10, pady=10)
+        self.top.pack(side='top', padx=10, pady=20)
 
         self.display = Display(self, boxfont=default_font, fg_color='transparent')
         self.display.pack(side='top')
